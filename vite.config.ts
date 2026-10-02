@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        home: 'index.html',
+        index: 'index.html',
         settlement: 'settlement.html',
       },
     },

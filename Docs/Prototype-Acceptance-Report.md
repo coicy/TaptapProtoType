@@ -3,7 +3,7 @@
 验收日期：2026-10-01  
 入口：[settlement.html](../settlement.html)
 
-本轮以用户提供的 Tile-Centric Gameplay Prototype 文档为修改依据。项目继续使用 Three.js + TypeScript + Vite；首页 Mycelium 原型保持不变。
+本轮以用户提供的 Tile-Centric Gameplay Prototype 文档为修改依据。项目继续使用 Three.js + TypeScript + Vite；`settlement.html` 是当前唯一的可玩原型入口。
 
 ## 已实现
 

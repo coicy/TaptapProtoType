@@ -3,78 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>菌落 / Mycelium</title>
+    <meta http-equiv="refresh" content="0; url=./settlement.html" />
+    <title>群生之地 · 涌现式造物主原型</title>
   </head>
   <body>
-    <div id="app">
-      <div id="hud" aria-live="polite">
-        <header class="topbar">
-          <div class="brand">
-            <span class="brand-mark">✣</span>
-            <div>
-              <div class="eyebrow">EMERGENCE PROTOTYPE</div>
-              <h1>菌落 <span>/ MYCELIUM</span></h1>
-            </div>
-          </div>
-          <div id="status-chip" class="status-chip">观察阶段</div>
-        </header>
-
-        <section class="readout-panel">
-          <div class="readout-heading"><span>生态读数</span><span id="time-readout">00:00</span></div>
-          <div class="meter-row"><span>营养库存</span><strong id="nutrient-readout">—</strong></div>
-          <div class="meter"><i id="nutrient-meter"></i></div>
-          <div class="flow-grid">
-            <div><span>输入 / 收入</span><strong id="income-readout">—</strong></div>
-            <div><span>维护压力</span><strong id="maintenance-readout">—</strong></div>
-          </div>
-          <div class="network-stats">
-            <span id="edge-readout">— 条边</span>
-            <span id="source-readout">— / 8 源点</span>
-          </div>
-        </section>
-
-        <section class="legend-panel">
-          <div class="legend-title">读懂网络</div>
-          <div class="legend-item"><i class="legend-swatch trunk"></i>高流量主干</div>
-          <div class="legend-item"><i class="legend-swatch branch"></i>低流量支线</div>
-          <div class="legend-item"><i class="legend-swatch dying"></i>失去连通</div>
-        </section>
-
-        <section class="insight-panel">
-          <div class="panel-kicker">FIELD NOTE</div>
-          <div id="insight-text">菌落正在寻找第一个营养源。点击地面，告诉它你想让它偏向哪里。</div>
-        </section>
-
-        <section class="event-panel" id="event-panel">
-          <div class="panel-kicker">SYSTEM LOG</div>
-          <div id="event-log"></div>
-        </section>
-
-        <div class="mode-controls">
-          <button class="mode-button active" data-mode="induce"><span>◎</span>诱导</button>
-          <button class="mode-button" data-mode="prune"><span>✂</span>剪枝</button>
-          <button id="reset-button" class="reset-button">重置实验</button>
-        </div>
-
-        <div id="prune-card" class="prune-card hidden">
-          <div class="panel-kicker">CUT PREVIEW</div>
-          <strong id="prune-title">选择一条边</strong>
-          <p id="prune-detail">悬停在菌丝上，预览剪枝后哪些区域会失去菌核连通。</p>
-          <button id="confirm-prune" disabled>确认剪枝</button>
-        </div>
-
-        <div id="win-card" class="win-card hidden">
-          <div class="win-orbit">✣</div>
-          <div class="panel-kicker">REPRODUCTION REACHED</div>
-          <h2>菌落已繁殖</h2>
-          <p>你没有设计这张网络。你只是给它一点偏向，然后学会在它过度扩张时放手。</p>
-          <button id="win-reset">再次观察</button>
-        </div>
-
-        <div class="help-strip"><span>点击地面</span>诱导局部生长 <b>·</b> <span>点击菌丝</span>预览网络重组</div>
-      </div>
-      <canvas id="scene" aria-label="菌落三维场景"></canvas>
-    </div>
-    <script type="module" src="/src/main.ts"></script>
+    <p>正在打开聚落原型……</p>
+    <script>
+      window.location.replace('./settlement.html');
+    </script>
   </body>
 </html>
