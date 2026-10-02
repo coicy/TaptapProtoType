@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#17251f" />
+    <meta name="description" content="观察居民如何在资源、距离与神谕影响下，自行形成聚落。" />
+    <title>群生 · 涌现式造物主原型</title>
+  </head>
+  <body>
+    <main id="app">
+      <div id="scene" aria-label="可交互的等距聚落沙盘"></div>
+      <div class="scene-vignette" aria-hidden="true"></div>
+      <header class="topbar">
+        <div class="brand-lockup"><div class="brand-mark" aria-hidden="true">涌</div><div><p class="eyebrow">A LIVING SYSTEM · PROTOTYPE</p><h1>群生之地</h1></div></div>
+        <div class="top-status"><div class="day-chip"><span class="live-dot"></span><span id="day-label">第 1 天</span><span class="status-divider">·</span><span id="run-state">运行中</span></div><div class="population-chip"><span class="tiny-label">居民</span><strong id="population">12</strong><span class="muted">/ 50</span><span class="housing-count">住屋 <b id="housing-count">16</b></span></div></div>
+        <div class="resource-strip" aria-label="聚落资源">
+          <div class="resource-chip food-chip"><span class="resource-icon">✳</span><span class="tiny-label">粮食</span><strong id="food">20</strong></div>
+          <div class="resource-chip wood-chip"><span class="resource-icon">⌁</span><span class="tiny-label">木材</span><strong id="wood">20</strong></div>
+          <div class="resource-chip stone-chip"><span class="resource-icon">◇</span><span class="tiny-label">石材</span><strong id="stone">8</strong></div>
+        </div>
+      </header>
+      <aside class="left-panel glass-panel">
+        <section class="goal-section"><div class="section-heading"><span class="section-kicker">宏观观察</span><span id="goal-state" class="goal-state">观察中</span></div><h2>空间结构</h2><p id="goal-description">观察居民如何在 Tile 状态、局部机会与神约评价中自行形成聚落。</p><div class="goal-progress-line"><span>人口</span><span id="population-goal">12 / 25</span></div><div class="meter"><i id="population-meter"></i></div><div class="goal-progress-line"><span>结构识别</span><span id="stable-goal">尚未识别</span></div><div class="meter meter-gold"><i id="stable-meter"></i></div></section>
+        <section class="pressure-section"><div class="section-heading"><span class="section-kicker">系统压力</span><span class="small-hint">动态指标</span></div>
+          <div class="pressure-row"><div><span>粮食稀缺</span><b id="food-pressure-value">—</b></div><div class="meter"><i id="food-pressure-bar"></i></div></div>
+          <div class="pressure-row"><div><span>木材稀缺</span><b id="wood-pressure-value">—</b></div><div class="meter meter-wood"><i id="wood-pressure-bar"></i></div></div>
+          <div class="pressure-row"><div><span>石材稀缺</span><b id="stone-pressure-value">—</b></div><div class="meter meter-stone"><i id="stone-pressure-bar"></i></div></div>
+          <div class="pressure-row"><div><span>住房压力</span><b id="housing-pressure-value">—</b></div><div class="meter meter-house"><i id="housing-pressure-bar"></i></div></div>
+          <div class="settlement-health"><span>粮食安全</span><b id="food-security">—</b><span class="health-separator">·</span><span>幸福度</span><b id="happiness">—</b></div>
+        </section>
+        <section class="overlay-section"><div class="section-heading"><span class="section-kicker">环境叠层</span><span class="small-hint">F1 – F4 / 调试</span></div><div class="overlay-grid" role="group" aria-label="选择环境调试叠层">
+          <button class="overlay-button active" data-overlay="none">地貌</button><button class="overlay-button" data-overlay="moisture">湿度</button><button class="overlay-button" data-overlay="heat">热量</button><button class="overlay-button" data-overlay="fertility">肥力</button><button class="overlay-button" data-overlay="attraction">吸引力</button><button class="overlay-button" data-overlay="treeDensity">树木</button><button class="overlay-button" data-overlay="landUse">土地用途</button><button class="overlay-button" data-overlay="farmSuitability">农作适性</button><button class="overlay-button" data-overlay="settlementValue">定居价值</button><button class="overlay-button" data-overlay="residentDensity">居民密度</button>
+        </div><div class="map-legend"><i id="legend-swatch"></i><span id="legend-label">普通土地 · 肥沃地 · 森林 · 石矿 · 水源</span></div></section>
+        <section class="tile-observer-section"><div class="section-heading"><span class="section-kicker">区域观察</span><span id="tile-selection-badge" class="selection-badge">未选择</span></div><p id="tile-state" class="tile-state">点击地图上的土地查看湿度、热量与派生条件。</p><div class="tile-facts"><div><span>树木量</span><b id="tile-tree-amount">—</b></div><div><span>火势</span><b id="tile-fire-level">—</b></div><div><span>土地用途</span><b id="tile-land-use">—</b></div><div><span>结构引用</span><b id="tile-structure-ref">—</b></div><div><span>农作适性 · Derived</span><b id="tile-farm-suitability">—</b></div><div><span>林业价值 · Derived</span><b id="tile-forestry-value">—</b></div><div><span>定居价值 · Derived</span><b id="tile-settlement-value">—</b></div><div><span>农作效率 · Derived</span><b id="tile-farm-efficiency">—</b></div><div><span>移动成本 · Derived</span><b id="tile-movement-cost">—</b></div><div><span>定居偏好 · Derived</span><b id="tile-settlement-preference">—</b></div></div><p id="tile-effects" class="tile-state"></p></section>
+      </aside>
+      <aside class="right-panel glass-panel">
+        <section class="inspector-section" aria-live="polite"><div class="section-heading"><span class="section-kicker">居民观察</span><span class="selection-badge" id="selection-badge">未选择</span></div>
+          <div id="inspector-empty" class="empty-inspector"><span class="empty-mark">⌖</span><p>点击一位居民，查看他的行动、目标与 Utility 分数。</p></div>
+          <div id="inspector-details" hidden><div class="agent-title-row"><span class="agent-avatar" id="agent-avatar">A</span><div><h2 id="agent-name">阿禾</h2><span class="agent-subtitle" id="agent-job">农务居民</span></div></div>
+            <div class="agent-facts"><div><span>当前行动</span><b id="agent-action">务农</b></div><div><span>行动目标</span><b id="agent-target">肥沃土地</b></div><div><span>饥饿</span><b id="agent-hunger">12%</b></div><div><span>住所</span><b id="agent-home">住宅 #1</b></div><div><span>行动承诺</span><b id="agent-commitment">—</b></div><div><span>切换成本</span><b id="agent-switch-cost">—</b></div></div>
+            <div class="utility-heading"><span>行为 Utility</span><span>选择理由</span></div><div id="utility-list" class="utility-list"></div><p class="reason-copy" id="agent-reason">居民会因需求、环境和距离改变选择。</p>
+            <div class="candidate-heading">已知候选</div><p class="reason-copy" id="agent-candidates">—</p>
+          </div>
+        </section>
+        <section class="event-section"><div class="section-heading"><span class="section-kicker">世界记录</span><span class="small-hint">自动记录</span></div><ol id="event-list" class="event-list" aria-live="polite"></ol></section>
+      </aside>
+      <div class="map-hint"><span class="hint-key">观察</span> 点居民查看原因 <i></i> 右键拖动地图 <i></i> 滚轮缩放</div>
+      <footer class="bottom-dock glass-panel">
+        <div class="miracle-tools"><div class="miracle-heading"><span class="section-kicker">神谕牌库</span><span id="miracle-hint">前两个回合为静默观察期</span></div><div class="oracle-meta"><span>神谕力 <b id="oracle-power">72</b></span><span>手牌 <b id="oracle-hand-count">0</b></span><span>牌库 <b id="oracle-deck-count">10</b></span><span>弃牌 <b id="oracle-discard-count">0</b></span><button id="acquire-oracle" class="oracle-discard-button" disabled>获取神谕卡</button><button id="discard-oracle" class="oracle-discard-button" disabled>弃置当前牌</button></div><div id="oracle-hand" class="miracle-buttons"></div><button id="cancel-miracle" class="cancel-miracle" aria-label="取消神谕">取消</button><button id="confirm-miracle" class="primary-button confirm-miracle" disabled>确认施放</button>
+        <button id="end-phase-button" class="primary-button phase-button" hidden>开始凡人阶段</button><button id="continue-button" class="primary-button phase-button" hidden>进入下一阶段</button></div>
+        <div class="dock-divider"></div>
+        <div class="time-tools"><button id="pause-button" class="pause-button" aria-label="暂停模拟">Ⅱ</button><div class="speed-buttons"><button class="speed-button active" data-speed="1">1×</button><button class="speed-button" data-speed="2">2×</button><button class="speed-button" data-speed="4">4×</button></div><span class="time-caption">模拟速度</span></div>
+        <button id="restart-button" class="restart-button"><span>↺</span> 重开</button>
+      </footer>
+      <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      <div id="ritual-modal" class="ending-backdrop" hidden><section class="ending-card ritual-card" role="dialog" aria-modal="true" aria-labelledby="ritual-title"><span class="ending-ornament">✦</span><p class="section-kicker" id="ritual-kicker">神启</p><h2 id="ritual-title">启示降临</h2><p id="ritual-copy">居民仍在世界中生活。选择一条神约后，模拟将继续。</p><div id="ritual-options" class="ritual-options"></div><div id="target-preview" class="target-preview" hidden></div><button id="ritual-confirm" class="primary-button ritual-confirm" disabled>确认施放</button><button id="ritual-cancel" class="cancel-miracle visible">取消</button></section></div>
+      <div id="ending-modal" class="ending-backdrop" hidden><section class="ending-card" role="dialog" aria-modal="true" aria-labelledby="ending-title"><span class="ending-ornament">✦</span><p class="section-kicker" id="ending-kicker">系统结果</p><h2 id="ending-title">结构趋于稳定</h2><p id="ending-copy">你的干预改变了环境，居民自己形成了新的生活秩序。</p><div class="ending-stats"><span>居民 <b id="ending-population">25</b></span><span>已运行 <b id="ending-days">—</b></span></div><button id="ending-restart" class="primary-button">再观察一次</button></section></div>
+    </main>
+    <script type="module" src="/src/settlement-main.ts"></script>
+  </body>
+</html>
